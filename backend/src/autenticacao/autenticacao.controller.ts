@@ -7,11 +7,14 @@ import { UpdateAutenticacaoDto } from './dto/update-autenticacao.dto';
 export class AutenticacaoController {
   constructor(private readonly autenticacaoService: AutenticacaoService) {}
 
-  @Post()
-  create(@Body() createAutenticacaoDto: CreateAutenticacaoDto) {
-    return this.autenticacaoService.create(createAutenticacaoDto);
+  @Post('registrar')
+  registrar(@Body()Body:any){
+    return this.autenticacaoService.registrar(Body);
   }
-
+  @Post('login')
+  login(@Body()Body:any){
+    return this.autenticacaoService.login(Body);
+  }
   @Get()
   findAll() {
     return this.autenticacaoService.findAll();
